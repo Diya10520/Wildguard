@@ -1,0 +1,157 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: #111c34;
+  border-bottom: 1px solid #1e293b;
+}
+
+.app-header h1 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.status-dot {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.status-dot.online { background: #14532d; color: #86efac; }
+.status-dot.offline { background: #450a0a; color: #fca5a5; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 18px;
+  padding: 20px;
+}
+
+.card {
+  background: #111c34;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.card h2 {
+  font-size: 1rem;
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: #93c5fd;
+}
+
+.map-card, .incidents-card { grid-column: span 1; }
+
+.alert-panel {
+  max-height: 360px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.alert-item {
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  border-left: 4px solid #475569;
+  background: #16213f;
+}
+.alert-item.level-high { border-left-color: #e63946; }
+.alert-item.level-medium { border-left-color: #f4a261; }
+.alert-item.level-low { border-left-color: #2a9d8f; }
+.alert-item.level-info { border-left-color: #457b9d; }
+.alert-item.emergency { background: #3f0d13; font-weight: 600; }
+.alert-meta { font-size: 0.75rem; color: #94a3b8; margin-top: 4px; }
+
+.muted { color: #64748b; font-size: 0.9rem; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+th, td {
+  text-align: left;
+  padding: 6px 8px;
+  border-bottom: 1px solid #1e293b;
+}
+tr.risk-high td:first-child { border-left: 3px solid #e63946; }
+tr.risk-medium td:first-child { border-left: 3px solid #f4a261; }
+tr.risk-low td:first-child { border-left: 3px solid #2a9d8f; }
+
+.live-webcam { display: flex; flex-direction: column; gap: 8px; }
+.webcam-video {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #000;
+}
+.webcam-controls button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  background: #1d4ed8;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+.webcam-controls .stop-btn { background: #b91c1c; }
+
+.divider { border: none; border-top: 1px solid #1e293b; margin: 14px 0; }
+
+.uploader { display: flex; flex-direction: column; gap: 12px; }
+.upload-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.85rem;
+  background: #16213f;
+  padding: 10px;
+  border-radius: 8px;
+}
+.sighting-report { display: flex; gap: 8px; align-items: center; }
+.sighting-report select, .sighting-report button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  background: #16213f;
+  color: #e2e8f0;
+}
+.sighting-report button { cursor: pointer; background: #1d4ed8; border: none; }
+.status-line { font-size: 0.8rem; color: #86efac; }
+
+.analytics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.chart-box { background: #16213f; padding: 10px; border-radius: 8px; }
+.chart-box h4 { margin: 0 0 8px; font-size: 0.8rem; color: #94a3b8; }
+.stat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #16213f;
+  border-radius: 8px;
+}
+.stat-number { font-size: 2rem; font-weight: 700; color: #86efac; }
+.stat-label { font-size: 0.8rem; color: #94a3b8; }
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+  .analytics-grid { grid-template-columns: 1fr; }
+}
